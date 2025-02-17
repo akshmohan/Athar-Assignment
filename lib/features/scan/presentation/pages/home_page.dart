@@ -23,6 +23,16 @@ class HomePage extends StatelessWidget {
             if (state is ExpiryDateLoading) {
               return const Center(child: CircularProgressIndicator());
             }
+            if (state is ExpiryDateLoaded) {
+              return Column(
+                children: [
+                  Text(
+                    'Expiry Date: ${state.expiryDate}',
+                    style: const TextStyle(fontSize: 24),
+                  ),
+                ],
+              );
+            }
             return ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurple,

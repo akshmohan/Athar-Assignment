@@ -14,6 +14,8 @@ class OcrService {
 
    final text = recognizedText.text;
 
+   print('---------------RECOGNIZED TEXT: $text-------------------');
+
    if(text.isEmpty) {
      return null;
    }

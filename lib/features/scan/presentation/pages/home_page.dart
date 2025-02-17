@@ -14,13 +14,15 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: BlocConsumer<ExpiryDateCubit, ExpiryDateState>(
           listener: (context, state) {
-            if(state is ExpiryDateLoaded) {
-                 
-            } else if(state is ExpiryDateError) {
-                 print('state is ExpiryDateError');
+            if (state is ExpiryDateLoaded) {
+            } else if (state is ExpiryDateError) {
+              print('state is ExpiryDateError');
             }
           },
           builder: (context, state) {
+            if (state is ExpiryDateLoading) {
+              return const Center(child: CircularProgressIndicator());
+            }
             return ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurple,
